@@ -16,7 +16,7 @@ class GridsPage extends StatelessWidget {
 
   final List boardsList = boardTemplates.keys.toList();
 
-  int getCrossAxisCountByWidth(width) {
+  int _crossAxisCountByWidth(width) {
     const itemMinWidth = 190;
 
     return (width < itemMinWidth) ? 1 : width ~/ itemMinWidth;
@@ -40,7 +40,7 @@ class GridsPage extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     primary: true,
                     crossAxisCount:
-                        getCrossAxisCountByWidth(constraints.maxWidth),
+                        _crossAxisCountByWidth(constraints.maxWidth),
                     mainAxisSpacing: 2,
                     crossAxisSpacing: 2,
                     children: boardTemplates.keys

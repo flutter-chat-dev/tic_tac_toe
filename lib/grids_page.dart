@@ -7,7 +7,7 @@ import 'model/boards.dart';
 /// This widget is the page of your application where one chooses a grid for a game.
 ///
 /// It holds the list of existing boards names [boardsList] and the chosen grid named [grid].
-/// When [grid] has been changed, the user is returned to the home page, 
+/// When [grid] has been changed, the user is returned to the home page,
 /// and the widget notifies the home page which [grid] value has been chosen.
 class GridsPage extends StatelessWidget {
   GridsPage({super.key, required this.grid});
@@ -15,6 +15,12 @@ class GridsPage extends StatelessWidget {
   final ValueNotifier<String> grid;
 
   final List boardsList = boardTemplates.keys.toList();
+
+  int getCrossAxisCountByWidth(width) {
+    const itemMinWidth = 190;
+
+    return (width < itemMinWidth) ? 1 : width ~/ itemMinWidth;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +39,8 @@ class GridsPage extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     primary: true,
-                    crossAxisCount: constraints.maxWidth > 700 ? 4 : 2,
+                    crossAxisCount:
+                        getCrossAxisCountByWidth(constraints.maxWidth),
                     mainAxisSpacing: 2,
                     crossAxisSpacing: 2,
                     children: boardTemplates.keys
@@ -59,7 +66,7 @@ class GridsPage extends StatelessWidget {
 }
 
 /// This widget is a card that display grid and its name.
-/// 
+///
 /// It holds grid name named [grid] and currentGrid values notifier named [currentGrid].
 /// It detects when a mouse click occurs, and notifies the grid page which grid has been selected.
 class SelectGrid extends StatelessWidget {
@@ -81,17 +88,20 @@ class SelectGrid extends StatelessWidget {
         child: Card(
             color: AppColors.card.background,
             child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  BoardIconView(board: boardTemplates[grid]!),
-                  const SizedBox(height: 20),
-                  Text(
-                    grid,
-                    style: textStyle,
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    BoardIconView(board: boardTemplates[grid]!),
+                    const SizedBox(height: 20),
+                    Text(
+                      grid,
+                      style: textStyle,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             )),
       ),

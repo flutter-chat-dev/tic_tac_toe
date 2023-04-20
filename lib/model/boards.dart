@@ -14,7 +14,32 @@ final boardTemplates = <String, Board>{
     [CellState.empty, CellState.empty, CellState.empty],
     [CellState.empty, CellState.empty, CellState.empty],
     [CellState.empty, CellState.empty, CellState.outside],
-  ]
+  ],
+  'Pyramid': [
+    [CellState.outside, CellState.outside, CellState.empty, CellState.outside, CellState.outside],
+    [CellState.outside, CellState.empty, CellState.empty, CellState.empty, CellState.outside],
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+  ],
+  '5 X 5': [
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+  ],
+  'Four in a row': [
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty, CellState.empty],
+  ],
+  'Misere Tic Tac Toe': [
+    [CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty],
+    [CellState.empty, CellState.empty, CellState.empty],
+  ],
 };
 
 /// Creates a new board from an existing board template named [boardName].

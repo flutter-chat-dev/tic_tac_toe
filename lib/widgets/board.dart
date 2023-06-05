@@ -3,10 +3,18 @@ import 'package:flutter/widgets.dart';
 import 'cell.dart';
 import '../model/game.dart';
 
+//   List<List<int>> result = [];
+
+// for (final x in Iterable.generate(game.board.length))
+//   for (final y in Iterable.generate(game.board[x].length))
+//     result[x][y] = 0
+
 /// This widget is a board that shows the game state.
-/// 
+///
 /// It holds game value named [game].
 class BoardView extends StatelessWidget {
+  static var board;
+
   const BoardView({super.key, required this.game});
   final Game game;
 

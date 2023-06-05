@@ -18,21 +18,23 @@ class GameRulesView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'For each board you can choose one of the rules variation to play:',
+            'Choose grid and choose the rules variation:',
             style: Theme.of(context).textTheme.titleLarge,
           ),
           Column(
-            children: gameRules.entries.map((entry) => 
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: lineSpacing),
-                  Text(entry.key, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  SizedBox(height: lineSpacing),
-                  Text(entry.value),
-                ],
-              )).toList()
-          ),
+              children: gameRules.entries
+                  .map((entry) => Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: lineSpacing),
+                          Text(entry.key,
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold)),
+                          SizedBox(height: lineSpacing),
+                          Text(entry.value),
+                        ],
+                      ))
+                  .toList()),
         ],
       ),
     );

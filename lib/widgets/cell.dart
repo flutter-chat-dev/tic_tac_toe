@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../model/game.dart';
 import '../styles/colors.dart';
+import 'game_view.dart';
 
 /// This widget is a game board's cell.
-/// 
+///
 /// It holds the current game and cell coordinates in [game], [x], [y] variables.
 class CellView extends StatefulWidget {
-  const CellView({
-    super.key,
-    required this.game,
-    required this.x,
-    required this.y
-  });
+  const CellView(
+      {super.key, required this.game, required this.x, required this.y});
 
   final Game game;
   final int x;
@@ -23,18 +20,19 @@ class CellView extends StatefulWidget {
 }
 
 /// This widget is a subclass of CellView and it changes the call state.
-/// 
+///
 /// This widget holds the cell's size named [_size] and the cell state named [_state].
 /// It updates the cell state when the cell is being tapped.
-/// It updates the cell's icon using method [_getIcon()] 
+/// It updates the cell's icon using method [_getIcon()]
 /// and the cell's boarder using method [_getBorderColor()].
 class _CellViewState extends State<CellView> {
   _CellViewState();
 
-  static const _size = 40.0;
+  static const _size = 25.0;
 
   void handleTap() {
     widget.game.updateCellOnTap(widget.x, widget.y);
+    tapState = [widget.x, widget.y];
     setState(() {});
   }
 

@@ -6,6 +6,11 @@ import '../model/game.dart';
 import '../styles/colors.dart';
 import 'board.dart';
 
+var tapState = [0, 0];
+var winner = '1';
+
+late final Game game1;
+
 class GameView extends StatefulWidget {
   const GameView({super.key});
 
@@ -34,7 +39,7 @@ class _GameViewState extends State<GameView> {
     _game.lastMove.addListener(() {
       setState(() {});
     });
-
+    winner = '';
     setState(() {});
   }
 
@@ -84,6 +89,43 @@ class _GameViewState extends State<GameView> {
           },
           child: const Text('Choose grid'),
         ),
+        const SizedBox(height: 20),
+        // For test
+        // Text(tapState[0].toString() + '. ' + tapState[1].toString()),
+        Visibility(
+            visible: winner != '',
+            child: Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    winner == 'x'
+                        ? 'Winner:  '
+                        : (winner == 'o' ? 'Winner:  ' : ''),
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  if (winner == 'x')
+                    const Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    )
+                  else if (winner == 'o')
+                    const Icon(
+                      Icons.circle_outlined,
+                      color: Colors.white,
+                    )
+                ],
+              ),
+            ))
       ],
     );
   }

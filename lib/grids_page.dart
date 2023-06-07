@@ -4,6 +4,9 @@ import 'package:tic_tac_toe/widgets/board_icon.dart';
 
 import 'model/boards.dart';
 
+import 'widgets/game_view.dart';
+import 'widgets/rules_buttons.dart';
+
 /// This widget is the page of your application where one chooses a grid for a game.
 ///
 /// It holds the list of existing boards names [boardsList] and the chosen grid named [grid].
@@ -57,6 +60,10 @@ class GridsPage extends StatelessWidget {
                     },
                     child: const Text('Cancel'),
                   ),
+                  const SizedBox(height: 20),
+                  const SizedBox(height: 20),
+                  const Text('Choose rules:'),
+                  RulesChangingButtons(),
                   const SizedBox(height: 20),
                   const Text('Current Grid:'),
                   SelectGrid(grid: grid.value, currentGrid: grid)

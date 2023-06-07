@@ -8,7 +8,7 @@ import 'board.dart';
 
 var tapState = [0, 0];
 var winner = '1';
-
+int rules = 1;
 late final Game game1;
 
 class GameView extends StatefulWidget {
@@ -89,6 +89,7 @@ class _GameViewState extends State<GameView> {
           },
           child: const Text('Choose grid'),
         ),
+
         const SizedBox(height: 20),
         // For test
         // Text(tapState[0].toString() + '. ' + tapState[1].toString()),

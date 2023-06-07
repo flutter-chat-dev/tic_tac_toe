@@ -13,7 +13,7 @@ import '../model/game.dart';
 ///
 /// It holds game value named [game].
 class BoardView extends StatelessWidget {
-  static var board;
+  //static var board;
 
   const BoardView({super.key, required this.game});
   final Game game;

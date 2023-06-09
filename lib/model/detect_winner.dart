@@ -1,204 +1,126 @@
 import 'package:tic_tac_toe/model/game.dart';
 
+import '../widgets/game_view.dart';
+
 String detectWinner(int x, int y, Board board) {
   String winner = '';
-  if (x - 1 >= 0 &&
-      x - 2 >= 0 &&
-      board[x][y] == CellState.x &&
-      board[x - 1][y] == CellState.x &&
-      board[x - 2][y] == CellState.x) {
-    winner = 'x';
-  }
-  if (x + 1 < board.length &&
-      x + 2 < board.length &&
-      board[x][y] == CellState.x &&
-      board[x + 1][y] == CellState.x &&
-      board[x + 2][y] == CellState.x) {
-    winner = 'x';
-  }
-  if (y + 1 < board.length &&
-      y + 2 < board.length &&
-      board[x][y] == CellState.x &&
-      board[x][y + 1] == CellState.x &&
-      board[x][y + 2] == CellState.x) {
-    winner = 'x';
-  }
-  if (y - 1 >= 0 &&
-      y - 2 >= 0 &&
-      board[x][y] == CellState.x &&
-      board[x][y - 1] == CellState.x &&
-      board[x][y - 2] == CellState.x) {
-    winner = 'x';
-  }
-  //center
-  if (x - 1 >= 0 &&
-      x + 1 < board.length &&
-      board[x][y] == CellState.x &&
-      board[x - 1][y] == CellState.x &&
-      board[x + 1][y] == CellState.x) {
-    winner = 'x';
-  }
-  if (y - 1 >= 0 &&
-      y + 1 < board.length &&
-      board[x][y] == CellState.x &&
-      board[x][y - 1] == CellState.x &&
-      board[x][y + 1] == CellState.x) {
-    winner = 'x';
-  }
-  if (x - 1 >= 0 &&
-      y - 1 >= 0 &&
-      x + 1 < board.length &&
-      y + 1 < board.length &&
-      board[x][y] == CellState.x &&
-      board[x - 1][y - 1] == CellState.x &&
-      board[x + 1][y + 1] == CellState.x) {
-    winner = 'x';
-  }
-  if (x - 1 >= 0 &&
-      x - 1 >= 0 &&
-      x + 1 < board.length &&
-      y + 1 < board.length &&
-      board[x][y] == CellState.x &&
-      board[x - 1][y + 1] == CellState.x &&
-      board[x + 1][y - 1] == CellState.x) {
-    winner = 'x';
-  }
-  //diagonals
-  if (x + 1 < board.length &&
-      x + 2 < board.length &&
-      y + 1 < board.length &&
-      y + 2 < board.length &&
-      board[x][y] == CellState.x &&
-      board[x + 1][y + 1] == CellState.x &&
-      board[x + 2][y + 2] == CellState.x) {
-    winner = 'x';
-  }
-  if (x - 1 >= 0 &&
-      x - 2 >= 0 &&
-      y + 1 < board.length &&
-      y + 2 < board.length &&
-      board[x][y] == CellState.x &&
-      board[x - 1][y + 1] == CellState.x &&
-      board[x - 2][y + 2] == CellState.x) {
-    winner = 'x';
-  }
-  if (y - 1 >= 0 &&
-      y - 2 >= 0 &&
-      x + 1 < board.length &&
-      x + 2 < board.length &&
-      board[x][y] == CellState.x &&
-      board[x + 1][y - 1] == CellState.x &&
-      board[x + 2][y - 2] == CellState.x) {
-    winner = 'x';
-  }
-  if (x - 1 >= 0 &&
-      x - 2 >= 0 &&
-      y - 1 >= 0 &&
-      y - 2 >= 0 &&
-      board[x][y] == CellState.x &&
-      board[x - 1][y - 1] == CellState.x &&
-      board[x - 2][y - 2] == CellState.x) {
-    winner = 'x';
+  int m = y;
+  int winXCount = 0;
+  int winOCount = 0;
+
+  // Vertical
+  for (int n = (x - inRowValue + 1); n <= (x + inRowValue - 1); n++) {
+    if (n >= 0 && n < board.length) {
+      if (board[n][m] == CellState.x) {
+        winXCount++;
+      }
+      if (board[n][m] == CellState.o) {
+        winOCount++;
+      }
+
+      if (winXCount == inRowValue) {
+        clickable = false;
+
+        winner = !misere ? 'x' : 'o';
+        return winner;
+      } else if (winOCount == inRowValue) {
+        clickable = false;
+
+        winner = !misere ? 'o' : 'x';
+        return winner;
+      }
+    } else {
+      winXCount = 0;
+      winOCount = 0;
+    }
   }
 
-  // for 0
-  if (x - 1 >= 0 &&
-      x - 2 >= 0 &&
-      board[x][y] == CellState.o &&
-      board[x - 1][y] == CellState.o &&
-      board[x - 2][y] == CellState.o) {
-    winner = 'o';
+  // Horizontal
+  winXCount = 0;
+  winOCount = 0;
+  for (int n = (y - inRowValue + 1); n <= (y + inRowValue - 1); n++) {
+    if (n >= 0 && n < board[x].length) {
+      if (board[x][n] == CellState.x) {
+        winXCount++;
+      }
+      if (board[x][n] == CellState.o) {
+        winOCount++;
+      }
+
+      if (winXCount == inRowValue) {
+        clickable = false;
+        winner = !misere ? 'x' : 'o';
+        clickable = false;
+        return winner;
+      } else if (winOCount == inRowValue) {
+        clickable = false;
+        winner = !misere ? 'o' : 'x';
+        clickable = false;
+        return winner;
+      }
+    } else {
+      winXCount = 0;
+      winOCount = 0;
+    }
   }
-  if (x + 1 < board.length &&
-      x + 2 < board.length &&
-      board[x][y] == CellState.o &&
-      board[x + 1][y] == CellState.o &&
-      board[x + 2][y] == CellState.o) {
-    winner = 'o';
+
+  // Diagonal (top-left to bottom-right)
+  winXCount = 0;
+  winOCount = 0;
+  for (int i = -inRowValue + 1; i < inRowValue; i++) {
+    int n = x + i;
+    int m = y + i;
+    if (n >= 0 && n < board.length && m >= 0 && m < board[n].length) {
+      if (board[n][m] == CellState.x) {
+        winXCount++;
+      }
+      if (board[n][m] == CellState.o) {
+        winOCount++;
+      }
+
+      if (winXCount == inRowValue) {
+        clickable = false;
+        winner = !misere ? 'x' : 'o';
+        return winner;
+      } else if (winOCount == inRowValue) {
+        clickable = false;
+        winner = !misere ? 'o' : 'x';
+        return winner;
+      }
+    } else {
+      winXCount = 0;
+      winOCount = 0;
+    }
   }
-  if (y + 1 < board.length &&
-      y + 2 < board.length &&
-      board[x][y] == CellState.o &&
-      board[x][y + 1] == CellState.o &&
-      board[x][y + 2] == CellState.o) {
-    winner = 'o';
+
+  // Diagonal (top-right to bottom-left)
+  winXCount = 0;
+  winOCount = 0;
+  for (int i = -inRowValue + 1; i < inRowValue; i++) {
+    int n = x + i;
+    int m = y - i;
+    if (n >= 0 && n < board.length && m >= 0 && m < board[n].length) {
+      if (board[n][m] == CellState.x) {
+        winXCount++;
+      }
+      if (board[n][m] == CellState.o) {
+        winOCount++;
+      }
+
+      if (winXCount == inRowValue) {
+        clickable = false;
+        winner = !misere ? 'x' : 'o';
+        return winner;
+      } else if (winOCount == inRowValue) {
+        clickable = false;
+        winner = !misere ? 'o' : 'x';
+        return winner;
+      }
+    } else {
+      winXCount = 0;
+      winOCount = 0;
+    }
   }
-  if (y - 1 >= 0 &&
-      y - 2 >= 0 &&
-      board[x][y] == CellState.o &&
-      board[x][y - 1] == CellState.o &&
-      board[x][y - 2] == CellState.o) {
-    winner = 'o';
-  }
-  //center
-  if (x - 1 >= 0 &&
-      x + 1 < board.length &&
-      board[x][y] == CellState.o &&
-      board[x - 1][y] == CellState.o &&
-      board[x + 1][y] == CellState.o) {
-    winner = 'o';
-  }
-  if (y - 1 >= 0 &&
-      y + 1 < board.length &&
-      board[x][y] == CellState.o &&
-      board[x][y - 1] == CellState.o &&
-      board[x][y + 1] == CellState.o) {
-    winner = 'o';
-  }
-  if (x - 1 >= 0 &&
-      y - 1 >= 0 &&
-      x + 1 < board.length &&
-      y + 1 < board.length &&
-      board[x][y] == CellState.o &&
-      board[x - 1][y - 1] == CellState.o &&
-      board[x + 1][y + 1] == CellState.o) {
-    winner = 'o';
-  }
-  if (x - 1 >= 0 &&
-      x - 1 >= 0 &&
-      x + 1 < board.length &&
-      y + 1 < board.length &&
-      board[x][y] == CellState.o &&
-      board[x - 1][y + 1] == CellState.o &&
-      board[x + 1][y - 1] == CellState.o) {
-    winner = 'o';
-  }
-  //diagonals
-  if (x + 1 < board.length &&
-      x + 2 < board.length &&
-      y + 1 < board.length &&
-      y + 2 < board.length &&
-      board[x][y] == CellState.o &&
-      board[x + 1][y + 1] == CellState.o &&
-      board[x + 2][y + 2] == CellState.o) {
-    winner = 'o';
-  }
-  if (x - 1 >= 0 &&
-      x - 2 >= 0 &&
-      y + 1 < board.length &&
-      y + 2 < board.length &&
-      board[x][y] == CellState.o &&
-      board[x - 1][y + 1] == CellState.o &&
-      board[x - 2][y + 2] == CellState.o) {
-    winner = 'o';
-  }
-  if (y - 1 >= 0 &&
-      y - 2 >= 0 &&
-      x + 1 < board.length &&
-      x + 2 < board.length &&
-      board[x][y] == CellState.o &&
-      board[x + 1][y - 1] == CellState.o &&
-      board[x + 2][y - 2] == CellState.o) {
-    winner = 'o';
-  }
-  if (x - 1 >= 0 &&
-      x - 2 >= 0 &&
-      y - 1 >= 0 &&
-      y - 2 >= 0 &&
-      board[x][y] == CellState.o &&
-      board[x - 1][y - 1] == CellState.o &&
-      board[x - 2][y - 2] == CellState.o) {
-    winner = 'o';
-  }
+
   return winner;
 }

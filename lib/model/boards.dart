@@ -1,3 +1,5 @@
+import 'package:tic_tac_toe/widgets/game_view.dart';
+
 import 'game.dart';
 
 /// The name of the default grid.
@@ -17,19 +19,42 @@ final boardTemplates = <String, Board>{
   ],
   'Pyramid': [
     [
-      CellState.outside, CellState.outside,  CellState.empty,  CellState.outside,  CellState.outside
+      CellState.outside,
+      CellState.outside,
+      CellState.empty,
+      CellState.outside,
+      CellState.outside
     ],
     [
-      CellState.outside,      CellState.empty,      CellState.empty,      CellState.empty,      CellState.outside
+      CellState.outside,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.outside
     ],
     [
-      CellState.empty,      CellState.empty,      CellState.empty,      CellState.empty,      CellState.empty    ],
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty
+    ],
   ],
   '5 X 5': [
     [
-      CellState.empty,      CellState.empty,      CellState.empty,      CellState.empty,      CellState.empty    ],
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty
+    ],
     [
-      CellState.empty,      CellState.empty,      CellState.empty,      CellState.empty,      CellState.empty    ],
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty
+    ],
     [
       CellState.empty,
       CellState.empty,
@@ -153,7 +178,8 @@ final boardTemplates = <String, Board>{
       CellState.empty,
       CellState.empty,
       CellState.empty
-    ],    [
+    ],
+    [
       CellState.empty,
       CellState.empty,
       CellState.empty,
@@ -172,6 +198,7 @@ final boardTemplates = <String, Board>{
 
 /// Creates a new board from an existing board template named [boardName].
 Board createBoard(String boardName) {
+  clickable = true;
   final template = boardTemplates[boardName]!;
   return List.generate(
     template.length,

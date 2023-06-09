@@ -10,6 +10,17 @@ var tapState = [0, 0];
 var winner = '1';
 int rules = 1;
 late final Game game1;
+int inRowValue = 3;
+bool wildClicked = false;
+bool misere = false;
+
+bool _clickable = true;
+
+bool get clickable => _clickable;
+
+set clickable(bool value) {
+  _clickable = value;
+}
 
 class GameView extends StatefulWidget {
   const GameView({super.key});
@@ -34,6 +45,7 @@ class _GameViewState extends State<GameView> {
   }
 
   void _createGame() {
+    clickable = true;
     _game = Game(createBoard(_grid.value));
 
     _game.lastMove.addListener(() {
@@ -64,6 +76,7 @@ class _GameViewState extends State<GameView> {
                     ? null
                     : () {
                         _game.stepBack();
+                        clickable = true;
                       },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.button.stepBack),
@@ -92,7 +105,7 @@ class _GameViewState extends State<GameView> {
 
         const SizedBox(height: 20),
         // For test
-        // Text(tapState[0].toString() + '. ' + tapState[1].toString()),
+        Text('rules $rules. in row $inRowValue. misere $misere'),
         Visibility(
             visible: winner != '',
             child: Container(

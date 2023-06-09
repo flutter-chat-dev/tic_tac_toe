@@ -20,6 +20,9 @@ class Game {
     if (cellState(x, y) == CellState.outside) {
       return;
     }
+    if (!clickable) {
+      return;
+    }
 
     final result = nextMove;
     if (nextMove == CellState.x) {

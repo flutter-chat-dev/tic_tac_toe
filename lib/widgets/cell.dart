@@ -28,7 +28,7 @@ class CellView extends StatefulWidget {
 class _CellViewState extends State<CellView> {
   _CellViewState();
 
-  static const _size = 25.0;
+  static const _size = 40.0;
 
   void handleTap() {
     widget.game.updateCellOnTap(widget.x, widget.y);

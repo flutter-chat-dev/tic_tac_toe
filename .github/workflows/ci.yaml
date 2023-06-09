@@ -1,7 +1,7 @@
 name: run-tests
 on: [pull_request]
 jobs:
-  drive:
+  ci:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3

@@ -105,7 +105,7 @@ class _GameViewState extends State<GameView> {
 
         const SizedBox(height: 20),
         // For test
-        Text('rules $rules. in row $inRowValue. misere $misere'),
+
         Visibility(
             visible: winner != '',
             child: Container(

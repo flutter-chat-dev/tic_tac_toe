@@ -4,7 +4,7 @@ import 'cell.dart';
 import '../model/game.dart';
 
 /// This widget is a board that shows the game state.
-/// 
+///
 /// It holds game value named [game].
 class BoardView extends StatelessWidget {
   const BoardView({super.key, required this.game});

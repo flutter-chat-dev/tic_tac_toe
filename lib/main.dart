@@ -36,7 +36,6 @@ class MyHomePage extends StatefulWidget {
 ///
 /// Builds the home page based on [_game] and [_grid] values.
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

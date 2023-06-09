@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 typedef Board = List<List<CellState>>;
 typedef Coordinates = ({int x, int y});
 
-
 /// A game that holds board value named [board] and the next move value named [nextMove].
 ///
 /// The game updates cell value using method [updateCellOnTap()]

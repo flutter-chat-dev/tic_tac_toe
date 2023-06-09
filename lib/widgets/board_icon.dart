@@ -4,7 +4,7 @@ import 'cell_icon.dart';
 import '../model/game.dart';
 
 /// This widget is a board icon.
-/// 
+///
 /// It holds board value named [board].
 class BoardIconView extends StatelessWidget {
   const BoardIconView({super.key, required this.board});

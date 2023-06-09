@@ -1,6 +1,6 @@
 import 'package:tic_tac_toe/model/game.dart';
 
-String Detect_winner(int x, int y, Board board) {
+String detectWinner(int x, int y, Board board) {
   String winner = '';
   if (x - 1 >= 0 &&
       x - 2 >= 0 &&

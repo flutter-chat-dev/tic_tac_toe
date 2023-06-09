@@ -31,7 +31,7 @@ class Game {
     board[x][y] = result;
     lastMove.value = (x: x, y: y);
 
-    winner = Detect_winner(x, y, board);
+    winner = detectWinner(x, y, board);
   }
 
   void stepBack() {

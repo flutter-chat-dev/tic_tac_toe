@@ -4,11 +4,13 @@ import 'package:tic_tac_toe/styles/colors.dart';
 import 'game_view.dart';
 
 class RulesChangingButtons extends StatefulWidget {
+  const RulesChangingButtons({super.key});
+
   @override
-  _RulesChangingButtonsState createState() => _RulesChangingButtonsState();
+  RulesChangingButtonsState createState() => RulesChangingButtonsState();
 }
 
-class _RulesChangingButtonsState extends State<RulesChangingButtons> {
+class RulesChangingButtonsState extends State<RulesChangingButtons> {
   //int rules = 0;
 
   @override

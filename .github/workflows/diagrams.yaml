@@ -1,4 +1,6 @@
-name: Run layerlens.
+name: update-diagrams
+
+# See https://github.com/ad-m/github-push-action/issues/170
 
 on:
   push:
@@ -39,4 +41,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        force_with_lease: true
+        force: true

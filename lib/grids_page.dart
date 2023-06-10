@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/styles/colors.dart';
 import 'package:tic_tac_toe/widgets/board_icon.dart';
+import 'package:tic_tac_toe/widgets/rules_buttons.dart';
 
 import 'model/boards.dart';
 
@@ -57,6 +58,11 @@ class GridsPage extends StatelessWidget {
                     },
                     child: const Text('Cancel'),
                   ),
+                  const SizedBox(height: 20),
+                  const SizedBox(height: 20),
+                  const Text('Choose rules:'),
+                  const RulesChangingButtons(),
+                  const SizedBox(height: 20),
                 ]),
               ),
             ),

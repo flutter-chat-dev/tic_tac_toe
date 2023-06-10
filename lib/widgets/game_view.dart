@@ -6,6 +6,21 @@ import '../model/game.dart';
 import '../styles/colors.dart';
 import 'board.dart';
 
+var winner = '1';
+int rules = 1;
+late final Game game1;
+int inRowValue = 3;
+bool wildClicked = false;
+bool misere = false;
+
+bool _clickable = true;
+
+bool get clickable => _clickable;
+
+set clickable(bool value) {
+  _clickable = value;
+}
+
 class GameView extends StatefulWidget {
   const GameView({super.key});
 

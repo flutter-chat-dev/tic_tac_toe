@@ -1,3 +1,5 @@
+import 'package:tic_tac_toe/widgets/game_view.dart';
+
 import 'game.dart';
 
 /// The name of the default grid.
@@ -140,6 +142,7 @@ final boardTemplates = <String, Board>{
 
 /// Creates a new board from an existing board template named [boardName].
 Board createBoard(String boardName) {
+  clickable = true;
   final template = boardTemplates[boardName]!;
   return List.generate(
     template.length,

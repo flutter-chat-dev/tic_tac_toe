@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/model/detect_winner.dart';
+import 'package:tic_tac_toe/widgets/game_view.dart';
 
 typedef Board = List<List<CellState>>;
 typedef Coordinates = ({int x, int y});
@@ -18,6 +20,9 @@ class Game {
     if (cellState(x, y) == CellState.outside) {
       return;
     }
+    if (!clickable) {
+      return;
+    }
 
     final result = nextMove;
     if (nextMove == CellState.x) {
@@ -29,6 +34,7 @@ class Game {
     board[x][y] = result;
 
     lastMove.value = (x: x, y: y);
+    winner = detectWinner(x, y, board);
   }
 
   void stepBack() {

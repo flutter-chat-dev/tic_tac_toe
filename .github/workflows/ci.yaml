@@ -1,11 +1,12 @@
 name: run-tests
 on: [pull_request]
 jobs:
-  drive:
+  ci:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: subosito/flutter-action@v1
+    - uses: actions/checkout@v3
+    - uses: subosito/flutter-action@v2
     - run: flutter pub get
+    - run: dart format . --set-exit-if-changed
     - run: flutter analyze --fatal-infos
     - run: flutter test

@@ -130,62 +130,7 @@ final boardTemplates = <String, Board>{
       CellState.empty,
       CellState.empty
     ],
-  ],
-  'Holes': [
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.outside,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.outside,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
+
   ],
   'Misere Tic Tac Toe': [
     [CellState.empty, CellState.empty, CellState.empty],

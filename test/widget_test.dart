@@ -28,7 +28,8 @@ void main() {
     expect(find.textContaining('Classic'), findsOneWidget);
   });
 
-  testWidgets('There is board without circle and close icons.', (WidgetTester tester) async {
+  testWidgets('There is board without circle and close icons.',
+      (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
@@ -43,7 +44,7 @@ void main() {
 
     // Verify that board cells do not have close icons.
     expect(find.byIcon(Icons.close), findsNothing);
-    
+
     // Tap a cell.
     await tester.tap(find.byType(CellView).first);
     await tester.pump();
@@ -58,7 +59,7 @@ void main() {
     // Verify that board cells has circle icons.
     expect(find.byIcon(Icons.circle_outlined), findsOneWidget);
 
-    await expectLater(find.byType(MyApp),
-                      matchesGoldenFile('goldens/main.png'));
+    await expectLater(
+        find.byType(MyApp), matchesGoldenFile('goldens/main.png'));
   });
 }

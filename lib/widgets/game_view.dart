@@ -99,7 +99,6 @@ class _GameViewState extends State<GameView> {
           },
           child: const Text('Choose grid'),
         ),
-        const SizedBox(height: 20),
         Visibility(
             visible: winner != '',
             child: Container(

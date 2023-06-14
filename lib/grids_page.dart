@@ -61,8 +61,6 @@ class GridsPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   const SizedBox(height: 20),
-                  const Text('Choose rules:'),
-                  const RulesChangingButtons(),
                   const SizedBox(height: 20),
                   const Text('Current Grid:'),
                   SelectGrid(grid: grid.value, currentGrid: grid)

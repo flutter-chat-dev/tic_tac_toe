@@ -21,17 +21,16 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
         const SizedBox(width: 20),
         SizedBox(
           width: 80,
-          height: 30, // Replace with the desired width
+          height: 30,
           child: OutlinedButton(
             onPressed: () {},
             style: ButtonStyle(
               side: MaterialStateProperty.all(
-                const BorderSide(color: Colors.black), // Set the outline color
+                const BorderSide(color: Colors.black),
               ),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(5.0), // Set the border radius
+                  borderRadius: BorderRadius.circular(5.0),
                 ),
               ),
             ),

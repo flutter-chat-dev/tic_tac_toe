@@ -59,6 +59,9 @@ class GridsPage extends StatelessWidget {
                     child: const Text('Cancel'),
                   ),
                   const SizedBox(height: 20),
+                  const Text('Current Grid:'),
+                  const SizedBox(height: 20),
+                  SelectGrid(grid: grid.value, currentGrid: grid)
                 ]),
               ),
             ),

@@ -11,8 +11,6 @@ class RulesChangingButtons extends StatefulWidget {
 }
 
 class RulesChangingButtonsState extends State<RulesChangingButtons> {
-  //int rules = 0;
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -87,9 +85,38 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
             color: rules == 4 ? Colors.black : Colors.grey,
           ),
         ),
-        TextButton(
-          onPressed: rules == 4 ? _showGridValueList : null,
-          child: Text(inRowValue.toString()),
+        SizedBox(
+          width: 65,
+          height: 30, // Replace with the desired width
+          child: OutlinedButton(
+            onPressed: null,
+            child: DropdownButton<int>(
+              value: inRowValue,
+              items: const [
+                DropdownMenuItem<int>(
+                  value: 3,
+                  child: Text('3'),
+                ),
+                DropdownMenuItem<int>(
+                  value: 4,
+                  child: Text('4'),
+                ),
+                DropdownMenuItem<int>(
+                  value: 5,
+                  child: Text('5'),
+                ),
+              ],
+              onChanged: (int? newValue) {
+                if (newValue != null) {
+                  setState(() {
+                    inRowValue = newValue;
+                  });
+                }
+              },
+              underline: Container(), // Remove the underline
+              icon: const Icon(Icons.arrow_drop_down), // Add the dropdown icon
+            ),
+          ),
         ),
         if (rules == 4)
           Row(
@@ -107,50 +134,6 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
             ],
           ),
       ],
-    );
-  }
-
-  void _showGridValueList() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('get-in-a-row'),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                ListTile(
-                  title: const Text('3'),
-                  onTap: () {
-                    setState(() {
-                      inRowValue = 3;
-                    });
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  title: const Text('4'),
-                  onTap: () {
-                    setState(() {
-                      inRowValue = 4;
-                    });
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  title: const Text('5'),
-                  onTap: () {
-                    setState(() {
-                      inRowValue = 5;
-                    });
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 }

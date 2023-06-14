@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/widgets/rules_buttons.dart';
 
 import '../grids_page.dart';
 import '../model/boards.dart';
@@ -7,11 +8,11 @@ import '../styles/colors.dart';
 import 'board.dart';
 
 var winner = '';
-int rules = 1;
+
 late final Game game1;
 int inRowValue = 3;
-bool wildClicked = false;
 bool misere = false;
+int boardSize = 3;
 
 bool _clickable = true;
 
@@ -99,6 +100,7 @@ class _GameViewState extends State<GameView> {
           },
           child: const Text('Choose grid'),
         ),
+        const SizedBox(height: 20),
         Visibility(
             visible: winner != '',
             child: Container(
@@ -132,7 +134,8 @@ class _GameViewState extends State<GameView> {
                     )
                 ],
               ),
-            ))
+            )),
+        const RulesChangingButtons()
       ],
     );
   }

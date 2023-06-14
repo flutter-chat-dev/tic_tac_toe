@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tic_tac_toe/model/detect_winner.dart';
+// import 'package:tic_tac_toe/model/detect_winner.dart';
 import 'package:tic_tac_toe/widgets/game_view.dart';
 
 typedef Board = List<List<CellState>>;
@@ -34,7 +34,7 @@ class Game {
     board[x][y] = result;
 
     lastMove.value = (x: x, y: y);
-    winner = detectWinner(x, y, board);
+    // winner = detectWinner(x, y, board);
   }
 
   void stepBack() {

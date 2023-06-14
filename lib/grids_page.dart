@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/styles/colors.dart';
 import 'package:tic_tac_toe/widgets/board_icon.dart';
-import 'package:tic_tac_toe/widgets/rules_buttons.dart';
+import 'package:tic_tac_toe/widgets/game_view.dart';
 
 import 'model/boards.dart';
 
@@ -59,10 +59,6 @@ class GridsPage extends StatelessWidget {
                     child: const Text('Cancel'),
                   ),
                   const SizedBox(height: 20),
-                  const SizedBox(height: 20),
-                  const Text('Choose rules:'),
-                  const RulesChangingButtons(),
-                  const SizedBox(height: 20),
                 ]),
               ),
             ),
@@ -88,8 +84,10 @@ class SelectGrid extends StatelessWidget {
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: () {
-          currentGrid.value = grid;
-          Navigator.pop(context);
+          if (grid.length > boardSize) {
+            currentGrid.value = grid;
+            Navigator.pop(context);
+          }
         },
         child: Card(
             color: AppColors.card.background,

@@ -143,7 +143,10 @@ final boardTemplates = <String, Board>{
 /// Creates a new board from an existing board template named [boardName].
 Board createBoard(String boardName) {
   clickable = true;
+  winner = '';
+
   final template = boardTemplates[boardName]!;
+  boardSize = template.length;
   return List.generate(
     template.length,
     (x) => List.generate(

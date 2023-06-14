@@ -4,8 +4,6 @@ import 'package:tic_tac_toe/widgets/board_icon.dart';
 
 import 'model/boards.dart';
 
-import 'widgets/rules_buttons.dart';
-
 /// This widget is the page of your application where one chooses a grid for a game.
 ///
 /// It holds the list of existing boards names [boardsList] and the chosen grid named [grid].

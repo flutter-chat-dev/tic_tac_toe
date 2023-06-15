@@ -20,7 +20,7 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
         const Text('get-in-a-row'),
         const SizedBox(width: 20),
         SizedBox(
-          width: 65,
+          width: 80,
           height: 30, // Replace with the desired width
           child: OutlinedButton(
             onPressed: () {},

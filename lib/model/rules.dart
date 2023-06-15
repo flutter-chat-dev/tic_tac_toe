@@ -5,5 +5,5 @@ const gameRules = <String, String>{
   'Misere':
       'In misere tic-tac-toe, the player wins if the opponent gets three-in-a-row.',
   'Four-in-a-row & Five-in-a-row':
-      'In Four-in-a-row or Five-in-a-rowtic-tac-toe, the first player to get four-in-a-row or five-in-a-row, vertically, horizontally, or diagonally, wins. It is unavaliable if the board is smaller than 4x4 or 5x5',
+      'In Four-in-a-row or Five-in-a-row tic-tac-toe, the first player to get four-in-a-row or five-in-a-row, vertically, horizontally, or diagonally, wins. It is unavaliable if the board is smaller than 4x4 or 5x5',
 };

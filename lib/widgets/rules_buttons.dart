@@ -71,11 +71,11 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
           ),
         ),
         const SizedBox(width: 20),
-        const Text('In a row to'),
+        const Text('in a row to'),
         const SizedBox(width: 20),
         SizedBox(
           width: 108,
-          height: 30, // Replace with the desired width
+          height: 30,
           child: OutlinedButton(
             onPressed: () {},
             style: ButtonStyle(

@@ -15,14 +15,6 @@ bool misere = false;
 int boardSize = 3;
 int whoWins = 0;
 
-bool _clickable = true;
-
-bool get clickable => _clickable;
-
-set clickable(bool value) {
-  _clickable = value;
-}
-
 class GameView extends StatefulWidget {
   const GameView({super.key});
 

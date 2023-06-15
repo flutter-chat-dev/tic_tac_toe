@@ -17,10 +17,10 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('get-in-a-row'),
+        const Text('Get'),
         const SizedBox(width: 20),
         SizedBox(
-          width: 80,
+          width: 87,
           height: 30, // Replace with the desired width
           child: OutlinedButton(
             onPressed: () {},
@@ -61,29 +61,62 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
                 }
               },
               style: const TextStyle(
-                color: Colors.black, // Set the text color
-                fontSize: 16, // Set the font size
-                fontWeight: FontWeight.normal, // Set the font weight
+                color: Colors.black,
+                fontSize: 14,
+                fontWeight: FontWeight.normal,
               ),
-              underline: Container(), // Remove the underline
-              icon: const Icon(Icons.arrow_drop_down), // Add the dropdown icon
+              underline: Container(),
+              icon: const Icon(Icons.arrow_drop_down),
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(width: 20),
-            Checkbox(
-              value: misere,
-              onChanged: (value) {
-                setState(() {
-                  misere = value ?? false;
-                });
-              },
+        const SizedBox(width: 20),
+        const Text('In a row to'),
+        const SizedBox(width: 20),
+        SizedBox(
+          width: 100,
+          height: 30, // Replace with the desired width
+          child: OutlinedButton(
+            onPressed: () {},
+            style: ButtonStyle(
+              side: MaterialStateProperty.all(
+                const BorderSide(color: Colors.black), // Set the outline color
+              ),
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(5.0), // Set the border radius
+                ),
+              ),
             ),
-            const Text('misere'),
-          ],
+            child: DropdownButton<int>(
+              value: whoWins,
+              items: const [
+                DropdownMenuItem<int>(
+                  value: 0,
+                  child: Text('Win'),
+                ),
+                DropdownMenuItem<int>(
+                  value: 1,
+                  child: Text('Lose'),
+                ),
+              ],
+              onChanged: (int? newValue) {
+                if (newValue != null) {
+                  setState(() {
+                    whoWins = newValue;
+                  });
+                }
+              },
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 13,
+                fontWeight: FontWeight.normal,
+              ),
+              underline: Container(),
+              icon: const Icon(Icons.arrow_drop_down),
+            ),
+          ),
         ),
       ],
     );

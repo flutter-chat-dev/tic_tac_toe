@@ -13,6 +13,7 @@ late final Game game1;
 int inRowValue = 3;
 bool misere = false;
 int boardSize = 3;
+int whoWins = 0;
 
 bool _clickable = true;
 

@@ -74,7 +74,7 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
         const Text('In a row to'),
         const SizedBox(width: 20),
         SizedBox(
-          width: 100,
+          width: 105,
           height: 30, // Replace with the desired width
           child: OutlinedButton(
             onPressed: () {},

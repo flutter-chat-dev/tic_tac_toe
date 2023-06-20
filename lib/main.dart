@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/styles/colors.dart';
 import 'package:tic_tac_toe/widgets/game_view.dart';
-import 'package:tic_tac_toe/widgets/rules.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,7 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   GameView(),
                   SizedBox(height: 40),
-                  GameRulesView()
                 ],
               ),
             ),

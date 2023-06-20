@@ -75,7 +75,7 @@ final boardTemplates = <String, Board>{
       CellState.empty
     ],
   ],
-  'Four in a row': [
+  '7x6': [
     [
       CellState.empty,
       CellState.empty,
@@ -130,17 +130,13 @@ final boardTemplates = <String, Board>{
       CellState.empty,
       CellState.empty
     ],
-  ],
-  'Misere Tic Tac Toe': [
-    [CellState.empty, CellState.empty, CellState.empty],
-    [CellState.empty, CellState.empty, CellState.empty],
-    [CellState.empty, CellState.empty, CellState.empty],
   ],
 };
 
 /// Creates a new board from an existing board template named [boardName].
 Board createBoard(String boardName) {
   final template = boardTemplates[boardName]!;
+
   return List.generate(
     template.length,
     (x) => List.generate(

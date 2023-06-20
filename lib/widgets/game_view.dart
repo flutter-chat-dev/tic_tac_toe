@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/widgets/rules_buttons.dart';
 
 import '../grids_page.dart';
 import '../model/boards.dart';
 import '../model/game.dart';
 import '../styles/colors.dart';
 import 'board.dart';
+
+int inRowValue = 3;
+bool misere = false;
+
+int whoWins = 0;
 
 class GameView extends StatefulWidget {
   const GameView({super.key});
@@ -84,6 +90,8 @@ class _GameViewState extends State<GameView> {
           },
           child: const Text('Choose grid'),
         ),
+        const SizedBox(height: 20),
+        const RulesChangingButtons()
       ],
     );
   }

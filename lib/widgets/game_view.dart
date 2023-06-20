@@ -7,7 +7,6 @@ import '../model/game.dart';
 import '../styles/colors.dart';
 import 'board.dart';
 
-late final Game game1;
 int inRowValue = 3;
 bool misere = false;
 

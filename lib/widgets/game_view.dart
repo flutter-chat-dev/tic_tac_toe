@@ -7,12 +7,10 @@ import '../model/game.dart';
 import '../styles/colors.dart';
 import 'board.dart';
 
-var winner = '';
-
 late final Game game1;
 int inRowValue = 3;
 bool misere = false;
-int boardSize = 3;
+
 int whoWins = 0;
 
 class GameView extends StatefulWidget {
@@ -94,40 +92,6 @@ class _GameViewState extends State<GameView> {
           child: const Text('Choose grid'),
         ),
         const SizedBox(height: 20),
-        Visibility(
-            visible: winner != '',
-            child: Container(
-              padding: const EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    winner == 'x'
-                        ? 'Winner:  '
-                        : (winner == 'o' ? 'Winner:  ' : ''),
-                    style: const TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  if (winner == 'x')
-                    const Icon(
-                      Icons.close,
-                      color: Colors.white,
-                    )
-                  else if (winner == 'o')
-                    const Icon(
-                      Icons.circle_outlined,
-                      color: Colors.white,
-                    )
-                ],
-              ),
-            )),
         const RulesChangingButtons()
       ],
     );

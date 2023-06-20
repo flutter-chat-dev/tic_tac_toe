@@ -10,8 +10,6 @@ class RulesChangingButtons extends StatefulWidget {
 }
 
 class RulesChangingButtonsState extends State<RulesChangingButtons> {
-  //int rules = 0;
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,53 +18,38 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
         const Text('Get'),
         const SizedBox(width: 20),
         SizedBox(
-          width: 87,
-          height: 30, // Replace with the desired width
-          child: OutlinedButton(
-            onPressed: () {},
-            style: ButtonStyle(
-              side: MaterialStateProperty.all(
-                const BorderSide(color: Colors.black), // Set the outline color
-              ),
-              shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(5.0), // Set the border radius
-                ),
-              ),
+          width: 90,
+          height: 30,
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(5.0),
             ),
-            child: DropdownButton<int>(
-              value: inRowValue,
-              items: [
-                const DropdownMenuItem<int>(
-                  value: 3,
-                  child: Text('3'),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: DropdownButton<int>(
+                value: inRowValue,
+                items: List<DropdownMenuItem<int>>.generate(
+                  8,
+                  (index) => DropdownMenuItem<int>(
+                    value: index + 3,
+                    child: Text((index + 3).toString()),
+                  ),
                 ),
-                if (boardSize > 3)
-                  const DropdownMenuItem<int>(
-                    value: 4,
-                    child: Text('4'),
-                  ),
-                if (boardSize > 4)
-                  const DropdownMenuItem<int>(
-                    value: 5,
-                    child: Text('5'),
-                  ),
-              ],
-              onChanged: (int? newValue) {
-                if (newValue != null) {
-                  setState(() {
-                    inRowValue = newValue;
-                  });
-                }
-              },
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.normal,
+                onChanged: (int? newValue) {
+                  if (newValue != null) {
+                    setState(() {
+                      inRowValue = newValue;
+                    });
+                  }
+                },
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                ),
+                underline: Container(),
+                icon: const Icon(Icons.arrow_drop_down),
               ),
-              underline: Container(),
-              icon: const Icon(Icons.arrow_drop_down),
             ),
           ),
         ),
@@ -74,47 +57,42 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
         const Text('in a row to'),
         const SizedBox(width: 20),
         SizedBox(
-          width: 108,
+          width: 90,
           height: 30,
-          child: OutlinedButton(
-            onPressed: () {},
-            style: ButtonStyle(
-              side: MaterialStateProperty.all(
-                const BorderSide(color: Colors.black), // Set the outline color
-              ),
-              shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(5.0), // Set the border radius
-                ),
-              ),
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(5.0),
             ),
-            child: DropdownButton<int>(
-              value: whoWins,
-              items: const [
-                DropdownMenuItem<int>(
-                  value: 0,
-                  child: Text('Win'),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: DropdownButton<int>(
+                value: whoWins,
+                items: const [
+                  DropdownMenuItem<int>(
+                    value: 0,
+                    child: Text('Win'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 1,
+                    child: Text('Lose'),
+                  ),
+                ],
+                onChanged: (int? newValue) {
+                  if (newValue != null) {
+                    setState(() {
+                      whoWins = newValue;
+                    });
+                  }
+                },
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 13,
+                  fontWeight: FontWeight.normal,
                 ),
-                DropdownMenuItem<int>(
-                  value: 1,
-                  child: Text('Lose'),
-                ),
-              ],
-              onChanged: (int? newValue) {
-                if (newValue != null) {
-                  setState(() {
-                    whoWins = newValue;
-                  });
-                }
-              },
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 13,
-                fontWeight: FontWeight.normal,
+                underline: Container(),
+                icon: const Icon(Icons.arrow_drop_down),
               ),
-              underline: Container(),
-              icon: const Icon(Icons.arrow_drop_down),
             ),
           ),
         ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/styles/colors.dart';
 import 'package:tic_tac_toe/widgets/board_icon.dart';
-import 'package:tic_tac_toe/widgets/game_view.dart';
 
 import 'model/boards.dart';
 
@@ -87,10 +86,8 @@ class SelectGrid extends StatelessWidget {
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: () {
-          if (grid.length > boardSize) {
-            currentGrid.value = grid;
-            Navigator.pop(context);
-          }
+          currentGrid.value = grid;
+          Navigator.pop(context);
         },
         child: Card(
             color: AppColors.card.background,

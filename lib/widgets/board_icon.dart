@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:tic_tac_toe/widgets/game_view.dart';
 
 import 'cell_icon.dart';
 import '../model/game.dart';
@@ -14,8 +13,6 @@ class BoardIconView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int boardLength = board.length;
-    boardSize = boardLength;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

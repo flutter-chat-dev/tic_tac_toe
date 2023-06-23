@@ -75,7 +75,7 @@ final boardTemplates = <String, Board>{
       CellState.empty
     ],
   ],
-  'Four in a row': [
+  '7x6': [
     [
       CellState.empty,
       CellState.empty,
@@ -131,10 +131,61 @@ final boardTemplates = <String, Board>{
       CellState.empty
     ],
   ],
-  'Misere Tic Tac Toe': [
-    [CellState.empty, CellState.empty, CellState.empty],
-    [CellState.empty, CellState.empty, CellState.empty],
-    [CellState.empty, CellState.empty, CellState.empty],
+  'Hole': [
+    [
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty
+    ],
+    [
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty
+    ],
+    [
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.outside,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty
+    ],
+    [
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.outside,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty
+    ],
+    [
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty
+    ],
+    [
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty,
+      CellState.empty
+    ],
   ],
 };
 

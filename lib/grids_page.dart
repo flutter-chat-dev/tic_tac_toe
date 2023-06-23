@@ -86,7 +86,9 @@ class SelectGrid extends StatelessWidget {
           Navigator.pop(context);
         },
         child: Card(
-            color: AppColors.card.background,
+            color: grid == currentGrid.value
+                ? AppColors.scaffold.primary
+                : AppColors.card.background,
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),

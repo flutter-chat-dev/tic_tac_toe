@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/widgets/dropdown.dart';
 
 import 'game_view.dart';
+
+String selectedValue = '3';
+String winValue = 'Win';
 
 class RulesChangingButtons extends StatefulWidget {
   const RulesChangingButtons({super.key});
@@ -18,7 +22,7 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
         const Text('Get'),
         const SizedBox(width: 20),
         SizedBox(
-          width: 90,
+          width: 70,
           height: 30,
           child: Container(
             decoration: BoxDecoration(
@@ -27,28 +31,15 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
             ),
             child: Padding(
               padding: const EdgeInsets.only(left: 8.0),
-              child: DropdownButton<int>(
-                value: inRowValue,
-                items: List<DropdownMenuItem<int>>.generate(
-                  8,
-                  (index) => DropdownMenuItem<int>(
-                    value: index + 3,
-                    child: Text((index + 3).toString()),
-                  ),
-                ),
-                onChanged: (int? newValue) {
-                  if (newValue != null) {
-                    setState(() {
-                      inRowValue = newValue;
-                    });
-                  }
+              child: RulesDropdown(
+                items: const ['3', '4', '5'],
+                selectedValue: selectedValue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value ?? '3';
+                    inRowValue = int.tryParse(value ?? '0') ?? 0;
+                  });
                 },
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                ),
-                underline: Container(),
-                icon: const Icon(Icons.arrow_drop_down),
               ),
             ),
           ),
@@ -57,7 +48,7 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
         const Text('in a row to'),
         const SizedBox(width: 20),
         SizedBox(
-          width: 90,
+          width: 70,
           height: 30,
           child: Container(
             decoration: BoxDecoration(
@@ -66,32 +57,15 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
             ),
             child: Padding(
               padding: const EdgeInsets.only(left: 8.0),
-              child: DropdownButton<int>(
-                value: whoWins,
-                items: const [
-                  DropdownMenuItem<int>(
-                    value: 0,
-                    child: Text('Win'),
-                  ),
-                  DropdownMenuItem<int>(
-                    value: 1,
-                    child: Text('Lose'),
-                  ),
-                ],
-                onChanged: (int? newValue) {
-                  if (newValue != null) {
-                    setState(() {
-                      whoWins = newValue;
-                    });
-                  }
+              child: RulesDropdown(
+                items: const ['Win', 'Lose'],
+                selectedValue: winValue,
+                onChanged: (value) {
+                  setState(() {
+                    winValue = value ?? 'Win';
+                    whoWins = value == 'Win' ? 0 : 1;
+                  });
                 },
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 13,
-                  fontWeight: FontWeight.normal,
-                ),
-                underline: Container(),
-                icon: const Icon(Icons.arrow_drop_down),
               ),
             ),
           ),

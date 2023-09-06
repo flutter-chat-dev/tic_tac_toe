@@ -47,14 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SingleChildScrollView(
             physics: ScrollPhysics(),
             child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  GameView(),
-                  SizedBox(height: 40),
-                ],
-              ),
+              child: GameView(),
             ),
           ),
         ),

@@ -7,7 +7,6 @@ import '../model/game.dart';
 import '../styles/colors.dart';
 import 'board.dart';
 
-int inRowValue = 3;
 bool misere = false;
 
 int whoWins = 0;
@@ -91,7 +90,8 @@ class _GameViewState extends State<GameView> {
           child: const Text('Choose grid'),
         ),
         const SizedBox(height: 20),
-        const RulesChangingButtons()
+        const RulesChangingButtons(),
+        Text(inRowValue.toString())
       ],
     );
   }

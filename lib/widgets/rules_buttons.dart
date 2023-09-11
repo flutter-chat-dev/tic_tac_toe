@@ -5,6 +5,7 @@ import 'game_view.dart';
 
 String selectedValue = '3';
 String winValue = 'Win';
+int inRowValue = 3;
 
 class RulesChangingButtons extends StatefulWidget {
   const RulesChangingButtons({super.key});

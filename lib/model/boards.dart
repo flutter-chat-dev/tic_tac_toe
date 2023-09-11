@@ -131,6 +131,7 @@ final boardTemplates = <String, Board>{
       CellState.empty
     ],
   ],
+
 };
 
 /// Creates a new board from an existing board template named [boardName].

@@ -21,9 +21,9 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text('Get'),
-        const SizedBox(width: 20),
+        const SizedBox(width: 7),
         SizedBox(
-          width: 70,
+          width: 80,
           height: 30,
           child: Container(
             decoration: BoxDecoration(
@@ -45,11 +45,11 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
             ),
           ),
         ),
-        const SizedBox(width: 20),
+        const SizedBox(width: 7),
         const Text('in a row to'),
-        const SizedBox(width: 20),
+        const SizedBox(width: 7),
         SizedBox(
-          width: 70,
+          width: 89,
           height: 30,
           child: Container(
             decoration: BoxDecoration(
@@ -57,7 +57,7 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
               borderRadius: BorderRadius.circular(5.0),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 8.0),
+              padding: const EdgeInsets.only(left: 5.0),
               child: RulesDropdown(
                 items: const ['Win', 'Lose'],
                 selectedValue: winValue,

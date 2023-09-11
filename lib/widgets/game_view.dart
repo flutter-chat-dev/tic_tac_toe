@@ -91,7 +91,6 @@ class _GameViewState extends State<GameView> {
         ),
         const SizedBox(height: 20),
         const RulesChangingButtons(),
-        Text(inRowValue.toString())
       ],
     );
   }

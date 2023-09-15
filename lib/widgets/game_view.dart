@@ -7,10 +7,6 @@ import '../model/game.dart';
 import '../styles/colors.dart';
 import 'board.dart';
 
-bool misere = false;
-
-int whoWins = 0;
-
 class GameView extends StatefulWidget {
   const GameView({super.key});
 
@@ -19,6 +15,8 @@ class GameView extends StatefulWidget {
 }
 
 class _GameViewState extends State<GameView> {
+  int whoWin = 0;
+  int inRowValu = 3;
   late Game _game;
   final ValueNotifier<String> _grid = ValueNotifier<String>(initialGridName);
 
@@ -90,7 +88,14 @@ class _GameViewState extends State<GameView> {
           child: const Text('Choose grid'),
         ),
         const SizedBox(height: 20),
-        const RulesChangingButtons(),
+        RulesChangingButtons(
+          onRulesChanged: (inRowValue, whoWins) {
+            setState(() {
+              inRowValu = inRowValue;
+              whoWin = whoWins;
+            });
+          },
+        ),
       ],
     );
   }

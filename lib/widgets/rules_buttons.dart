@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/widgets/dropdown.dart';
 
-import 'game_view.dart';
-
-String selectedValue = '3';
-String winValue = 'Win';
-int inRowValue = 3;
-
 class RulesChangingButtons extends StatefulWidget {
-  const RulesChangingButtons({super.key});
+  final void Function(int inRowValue, int whoWins) onRulesChanged;
+
+  const RulesChangingButtons({
+    Key? key,
+    required this.onRulesChanged,
+  }) : super(key: key);
 
   @override
   RulesChangingButtonsState createState() => RulesChangingButtonsState();
 }
 
 class RulesChangingButtonsState extends State<RulesChangingButtons> {
+  String selectedValue = '3';
+  String winValue = 'Win';
+  int inRowValue = 3;
+  int whoWins = 0;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -39,6 +43,8 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
                   setState(() {
                     selectedValue = value ?? '3';
                     inRowValue = int.tryParse(value ?? '0') ?? 0;
+                    // final whoWins = value == 'Win' ? 0 : 1;
+                    widget.onRulesChanged(inRowValue, whoWins);
                   });
                 },
               ),
@@ -64,7 +70,8 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
                 onChanged: (value) {
                   setState(() {
                     winValue = value ?? 'Win';
-                    whoWins = value == 'Win' ? 0 : 1;
+                    final whoWins = value == 'Win' ? 0 : 1;
+                    widget.onRulesChanged(inRowValue, whoWins);
                   });
                 },
               ),

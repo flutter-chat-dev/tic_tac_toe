@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/widgets/dropdown.dart';
 
 class RulesChangingButtons extends StatefulWidget {
-  final void Function(int inRowValue, int whoWins) onRulesChanged;
+  final void Function(int inRowValue, bool rowBuilderWins) onRulesChanged;
 
   const RulesChangingButtons({
     Key? key,
@@ -17,8 +17,7 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
   String selectedValue = '3';
   String winValue = 'Win';
   int inRowValue = 3;
-  int whoWins = 0;
-
+  bool rowBuilderWins = false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -43,8 +42,7 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
                   setState(() {
                     selectedValue = value ?? '3';
                     inRowValue = int.tryParse(value ?? '0') ?? 0;
-                    // final whoWins = value == 'Win' ? 0 : 1;
-                    widget.onRulesChanged(inRowValue, whoWins);
+                    widget.onRulesChanged(inRowValue, rowBuilderWins);
                   });
                 },
               ),
@@ -70,8 +68,8 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
                 onChanged: (value) {
                   setState(() {
                     winValue = value ?? 'Win';
-                    final whoWins = value == 'Win' ? 0 : 1;
-                    widget.onRulesChanged(inRowValue, whoWins);
+                    final rowBuilderWins = value == 'Win' ? false : true;
+                    widget.onRulesChanged(inRowValue, rowBuilderWins);
                   });
                 },
               ),

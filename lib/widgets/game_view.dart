@@ -15,8 +15,8 @@ class GameView extends StatefulWidget {
 }
 
 class _GameViewState extends State<GameView> {
-  int whoWin = 0;
-  int inRowValu = 3;
+  bool rowBuilderWins = false;
+  int inRowValue = 3;
   late Game _game;
   final ValueNotifier<String> _grid = ValueNotifier<String>(initialGridName);
 
@@ -91,8 +91,8 @@ class _GameViewState extends State<GameView> {
         RulesChangingButtons(
           onRulesChanged: (inRowValue, whoWins) {
             setState(() {
-              inRowValu = inRowValue;
-              whoWin = whoWins;
+              this.inRowValue = inRowValue;
+              rowBuilderWins = whoWins;
             });
           },
         ),

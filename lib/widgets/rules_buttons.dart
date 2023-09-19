@@ -17,7 +17,10 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
   String selectedValue = '3';
   String winValue = 'Win';
   int inRowValue = 3;
-  bool rowBuilderWins = false;
+  bool rowBuilderWins = true;
+
+  static const String valueWin = 'Win';
+  static const String valueLose = 'Lose';
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -63,12 +66,12 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
             child: Padding(
               padding: const EdgeInsets.only(left: 5.0),
               child: RulesDropdown(
-                items: const ['Win', 'Lose'],
+                items: const [valueWin, valueLose],
                 selectedValue: winValue,
                 onChanged: (value) {
                   setState(() {
-                    winValue = value ?? 'Win';
-                    final rowBuilderWins = value == 'Win' ? false : true;
+                    winValue = value ?? valueWin;
+                    final rowBuilderWins = value == valueWin ? false : true;
                     widget.onRulesChanged(inRowValue, rowBuilderWins);
                   });
                 },

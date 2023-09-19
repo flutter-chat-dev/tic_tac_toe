@@ -89,10 +89,10 @@ class _GameViewState extends State<GameView> {
         ),
         const SizedBox(height: 20),
         RulesChangingButtons(
-          onRulesChanged: (inRowValue, whoWins) {
+          onRulesChanged: (inRowValue, rowBuilderWins) {
             setState(() {
               this.inRowValue = inRowValue;
-              rowBuilderWins = whoWins;
+              this.rowBuilderWins = rowBuilderWins;
             });
           },
         ),

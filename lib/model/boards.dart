@@ -131,67 +131,12 @@ final boardTemplates = <String, Board>{
       CellState.empty
     ],
   ],
-  'Hole': [
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.outside,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.outside,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-    [
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty,
-      CellState.empty
-    ],
-  ],
 };
 
 /// Creates a new board from an existing board template named [boardName].
 Board createBoard(String boardName) {
   final template = boardTemplates[boardName]!;
+
   return List.generate(
     template.length,
     (x) => List.generate(

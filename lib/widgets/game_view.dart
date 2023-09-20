@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/widgets/rules_buttons.dart';
 
 import '../grids_page.dart';
 import '../model/boards.dart';
@@ -14,6 +15,8 @@ class GameView extends StatefulWidget {
 }
 
 class _GameViewState extends State<GameView> {
+  bool rowBuilderWins = false;
+  int inRowValue = 3;
   late Game _game;
   final ValueNotifier<String> _grid = ValueNotifier<String>(initialGridName);
 
@@ -83,6 +86,15 @@ class _GameViewState extends State<GameView> {
             );
           },
           child: const Text('Choose grid'),
+        ),
+        const SizedBox(height: 20),
+        RulesChangingButtons(
+          onRulesChanged: (inRowValue, rowBuilderWins) {
+            setState(() {
+              this.inRowValue = inRowValue;
+              this.rowBuilderWins = rowBuilderWins;
+            });
+          },
         ),
       ],
     );

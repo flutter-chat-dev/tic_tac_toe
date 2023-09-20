@@ -8,6 +8,7 @@ import '../model/game.dart';
 /// It holds board value named [board].
 class BoardIconView extends StatelessWidget {
   const BoardIconView({super.key, required this.board});
+
   final Board board;
 
   @override

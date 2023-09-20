@@ -14,13 +14,14 @@ class RulesChangingButtons extends StatefulWidget {
 }
 
 class RulesChangingButtonsState extends State<RulesChangingButtons> {
-  String selectedValue = '3';
-  String winValue = 'Win';
-  int inRowValue = 3;
-  bool rowBuilderWins = true;
+  String _selectedValue = '3';
+
+  int _inRowValue = 3;
+  final bool _rowBuilderWins = true;
 
   static const String valueWin = 'Win';
   static const String valueLose = 'Lose';
+  String _winValue = valueWin;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -40,12 +41,12 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
               padding: const EdgeInsets.only(left: 8.0),
               child: RulesDropdown(
                 items: const ['3', '4', '5'],
-                selectedValue: selectedValue,
+                selectedValue: _selectedValue,
                 onChanged: (value) {
                   setState(() {
-                    selectedValue = value ?? '3';
-                    inRowValue = int.tryParse(value ?? '0') ?? 0;
-                    widget.onRulesChanged(inRowValue, rowBuilderWins);
+                    _selectedValue = value ?? '3';
+                    _inRowValue = int.tryParse(value ?? '0') ?? 0;
+                    widget.onRulesChanged(_inRowValue, _rowBuilderWins);
                   });
                 },
               ),
@@ -67,12 +68,12 @@ class RulesChangingButtonsState extends State<RulesChangingButtons> {
               padding: const EdgeInsets.only(left: 5.0),
               child: RulesDropdown(
                 items: const [valueWin, valueLose],
-                selectedValue: winValue,
+                selectedValue: _winValue,
                 onChanged: (value) {
                   setState(() {
-                    winValue = value ?? valueWin;
+                    _winValue = value ?? valueWin;
                     final rowBuilderWins = value == valueWin ? false : true;
-                    widget.onRulesChanged(inRowValue, rowBuilderWins);
+                    widget.onRulesChanged(_inRowValue, rowBuilderWins);
                   });
                 },
               ),

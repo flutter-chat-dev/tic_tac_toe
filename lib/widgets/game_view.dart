@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/widgets/rules_buttons.dart';
+import 'winner_display.dart';
 
 import '../grids_page.dart';
 import '../model/boards.dart';
@@ -15,7 +16,9 @@ class GameView extends StatefulWidget {
 }
 
 class _GameViewState extends State<GameView> {
-  bool rowBuilderWins = false;
+  String winner = '';
+
+  bool rowBuilderWins = true;
   int inRowValue = 3;
   late Game _game;
   final ValueNotifier<String> _grid = ValueNotifier<String>(initialGridName);
@@ -39,6 +42,12 @@ class _GameViewState extends State<GameView> {
     });
 
     setState(() {});
+  }
+
+  void changeWinner(String newWinner) {
+    setState(() {
+      winner = newWinner;
+    });
   }
 
   @override
@@ -96,6 +105,8 @@ class _GameViewState extends State<GameView> {
             });
           },
         ),
+        const SizedBox(height: 20),
+        WinnerDisplay(winner: winner, rowBuilderWins: rowBuilderWins),
       ],
     );
   }
